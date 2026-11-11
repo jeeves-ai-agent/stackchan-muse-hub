@@ -1,0 +1,7 @@
+# Secrets (relay token etc.) — never commit
+sdkconfig.local
+
+# Build outputs
+build/
+dist/
+*.bin

@@ -1,0 +1,15 @@
+# Project dir is hub/hub (this repo: ./hub/hub; idf.py -C hub/hub). Relative paths below resolve from there.
+# hub for M5Stack CoreS3 (16 MB flash, 8 MB PSRAM).
+# Derived from hub/sdkconfig.hub (StickS3, 8 MB partition table removed so the
+# SDK partitions_muse.csv (2 x 4 MB app slots) applies). Applied after the SDK's CoreS3 profile.
+
+# Paths in sdkconfig are relative to the project directory (hub/).
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="third_party/muse-gadget-sdk/esp32/partitions_muse.csv"
+CONFIG_SECURE_BOOT_SIGNING_KEY="third_party/muse-gadget-sdk/esp32/dev_signing_key.pem"
+
+# Japanese captions: Unifont covers kana and every CJK Unified Ideograph.
+CONFIG_MUSE_CJK_FONT=y
+CONFIG_MUSE_CJK_FONT_NOTO=n
+
+# The hub's mDNS task stack in PSRAM: the SDK's own tasks need the internal RAM.
+CONFIG_MDNS_TASK_CREATE_FROM_SPIRAM=y
